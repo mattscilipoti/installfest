@@ -201,9 +201,9 @@ class Installfest
 
 
   - Prior to the line that says...:
-  
+
     `[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*`
-    
+
     ...copy and paste these lines:
 
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -214,10 +214,10 @@ class Installfest
     PS1="\[\e[33m\]  \d \t \w$git_prompt\n\[\e[m\]\\$ "
 
     This will change your bash prompt to something like this sample prompt (context: in "installfest" dir, branch is "master" with unstaged changes):
-    
+
     ===== Mon May 23 16:06:51 ~/wdi/myhomework (master *)
     $
-    
+
     (P.S. That last PS1 line can be customized however you want! It just has to include '$(__git_ps1)' to show the Git information. If you're interesting, take a look at http://ezprompt.net when you're done with Installfest.)
           ),
         ],
@@ -322,7 +322,7 @@ We use information from your github account throughout the class.
         header: "Register a global gitignore file",
         installation_steps: [
           %q(
-1. Backup your existing global_gitignore (if it exists).  You can ignore a "No such file or directory" error:
+1. Backup your existing global gitignore file (if it exists).  You can ignore a "No such file or directory" error:
 
     $ mv ~/.gitignore_global ~/.gitignore_global.bak
 
@@ -408,7 +408,7 @@ We use information from your github account throughout the class.
 
 2. Install ruby
 
-    $ rvm install 2.3.1
+    $ rvm install 2.3.3
 
 NOTE: If you get the warning below, you can safely ignore it and move on to step 3.
 
@@ -417,12 +417,12 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
 
 3. Configure your default version of ruby
 
-    $ rvm use 2.3.1 --default
+    $ rvm use 2.3.3 --default
           )
         ],
-        verify: -> { assert_match(/^ruby 2.3.1p112/, 'ruby --version') },
+        verify: -> { assert_match(/^ruby 2.3.3p222/, 'ruby --version') },
         ykiwi: %q(
-* The output of `$ ruby --version` **starts** with `ruby 2.3.1p112`.
+* The output of `$ ruby --version` **starts** with `ruby 2.3.3p222`.
         )
       },
 
@@ -432,10 +432,10 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
           %q(
 1. Update to the latest version of Bundler, a Ruby Gem
 
-    $ gem install bundler -v 1.11.2 && gem cleanup bundler
+    $ gem install bundler
           )
         ],
-        verify: -> { assert_version_is_sufficient('1.11.0', 'gem list bundler | head -n1  | cut -f2 -d " " | sed "s/[()]//g"') }
+        verify: -> { assert_version_is_sufficient('1.13.0', 'gem list bundler | head -n1  | cut -f2 -d " " | sed "s/[()]//g"') }
       },
 
       ruby_gems: {
@@ -447,7 +447,7 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
     $ gem update --system
           )
         ],
-        verify: -> { assert_version_is_sufficient('2.5.2', 'gem -v') }
+        verify: -> { assert_version_is_sufficient('2.6.10', 'gem -v') }
       },
 
       rvm: {
