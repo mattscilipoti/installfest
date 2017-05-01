@@ -1,6 +1,6 @@
 ---
 # Config file for STScI, just symlink it as 'installfest.yml' and run your rake task.
-# - :uninstall_non_brew_node
+- :uninstall_non_brew_node
 # - :homebrew
 - :postgresql
 - :node
@@ -10,6 +10,6 @@
 - :ruby_gems
 - :ruby_bundler
 - :git
-- :github
+#- :github
 - :global_gitignore
 #- :bash_prompt
