@@ -383,8 +383,21 @@ We use information from your github account throughout the class.
       },
 
 
-      postgres: {
-        header: 'PostgreSQL (A Database)',
+      postgresql: {
+        header: 'PostgreSQL (via Homebrew)',
+        installation_steps: [
+          %q(
+1. Install the necessary client and server libraries:
+    brew install postgresql
+2. To have launchd start postgresql now and restart at login:
+    brew services start postgresql
+          )
+        ],
+        verify: -> { assert_version_is_sufficient('9.5.0', 'psql --version | cut -f3 -d " "')}
+      },
+
+      postgresql_app: {
+        header: 'PostgreSQL App',
         installation_steps: [
           %q(
 1. Download Postgres.app from www.postgresapp.com
