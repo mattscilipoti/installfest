@@ -388,12 +388,12 @@ We use information from your github account throughout the class.
         installation_steps: [
           %q(
 1. Install the necessary client and server libraries:
-    brew install postgresql
+    brew install postgresql@9.6
 2. To have launchd start postgresql now and restart at login:
     brew services start postgresql
           )
         ],
-        verify: -> { assert_version_is_sufficient('9.5.0', 'psql --version | cut -f3 -d " "')}
+        verify: -> { assert_version_is_sufficient('9.6.0', 'psql --version | cut -f3 -d " "')}
       },
 
       postgresql_app: {
@@ -409,7 +409,7 @@ We use information from your github account throughout the class.
     $ echo 'export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin' >> ~/.bash_profile
           )
         ],
-        verify: -> { assert_version_is_sufficient('9.5.0', 'psql --version | cut -f3 -d " "')}
+        verify: -> { assert_version_is_sufficient('9.6.0', 'psql --version | cut -f3 -d " "')}
       },
 
       ruby: {
@@ -421,7 +421,7 @@ We use information from your github account throughout the class.
 
 2. Install ruby
 
-    $ rvm install 2.3.3
+    $ rvm install 2.4.2
 
 NOTE: If you get the warning below, you can safely ignore it and move on to step 3.
 
@@ -430,12 +430,12 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
 
 3. Configure your default version of ruby
 
-    $ rvm use 2.3.3 --default
+    $ rvm use 2.4.2 --default
           )
         ],
-        verify: -> { assert_match(/^ruby 2.3.3p222/, 'ruby --version') },
+        verify: -> { assert_match(/^ruby 2.4.2p198/, 'ruby --version') },
         ykiwi: %q(
-* The output of `$ ruby --version` **starts** with `ruby 2.3.3p222`.
+* The output of `$ ruby --version` **starts** with `ruby 2.4.2p198`.
         )
       },
 
@@ -448,7 +448,7 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
     $ gem install bundler
           )
         ],
-        verify: -> { assert_version_is_sufficient('1.13.0', 'gem list bundler | head -n1  | cut -f2 -d " " | sed "s/[()]//g"') }
+        verify: -> { assert_version_is_sufficient('1.16.0', 'gem list bundler | head -n1  | cut -f2 -d " " | sed "s/[()]//g"') }
       },
 
       ruby_gems: {
