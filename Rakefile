@@ -291,9 +291,17 @@ class Installfest
 5. Tell git what editor to use for commits
 
     $ git config --global core.editor atom
+
+6. Configure to use "current" as default push configuration
+
+    $ git config push.default current
+
+7. Use `pull --rebase` for master
+
+    $ git config branch.master.rebase true
           ),
         ],
-        verify: -> { assert_match(/core.editor=atom/, 'git config --list | grep core.editor')}
+        verify: -> { assert_match(/branch.master.rebase=true/, 'git config --list | grep branch.master.rebase')}
       },
 
       github: {
@@ -815,7 +823,6 @@ end
 ################################
 # The Tests
 # Only run tests if this file is loaded directly (not thru rake)
-# Usage: $ ruby Rakefile
 if $PROGRAM_NAME == __FILE__
   require 'minitest/autorun'
 

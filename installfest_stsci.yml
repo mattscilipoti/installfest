@@ -10,6 +10,7 @@
 - :ruby_gems
 - :ruby_bundler
 - :git
+- :git_configuration
 #- :github
 - :global_gitignore
 #- :bash_prompt
