@@ -456,7 +456,7 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
     $ gem install bundler
           )
         ],
-        verify: -> { assert_version_is_sufficient('1.16.0', 'gem list bundler | head -n1  | cut -f2 -d " " | sed "s/[()]//g"') }
+        verify: -> { assert_version_is_sufficient('1.16.0', 'gem list bundler | head -n1  | cut -f3 -d " " | sed "s/[()]//g"') }
       },
 
       ruby_gems: {
@@ -468,7 +468,7 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
     $ gem update --system
           )
         ],
-        verify: -> { assert_version_is_sufficient('2.6.10', 'gem -v') }
+        verify: -> { assert_version_is_sufficient('2.7.2', 'gem -v') }
       },
 
       rvm: {
