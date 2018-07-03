@@ -394,14 +394,16 @@ We use information from your github account throughout the class.
       postgresql: {
         header: 'PostgreSQL (via Homebrew)',
         installation_steps: [
-          %q(
+          '
 1. Install the necessary client and server libraries:
-    brew install postgresql@9.6
-2. To have launchd start postgresql now and restart at login:
-    brew services start postgresql
-          )
+    $ brew install postgresql@9.6
+2. Ensure postrges is available in your PATH:
+    $ echo "PATH=/usr/local/opt/postgresql@9.6/bin:$PATH" >> ~/.bash_profile
+3. To have launchd start postgresql now and restart at login:
+    $ brew services start postgresql@9.6
+          '
         ],
-        verify: -> { assert_version_is_sufficient('9.6.0', 'psql --version | cut -f3 -d " "')}
+        verify: -> { assert_version_is_sufficient('9.6.0', 'psql --version | cut -f3 -d " "') }
       },
 
       postgresql_app: {
