@@ -397,10 +397,8 @@ We use information from your github account throughout the class.
           '
 1. Install the necessary client and server libraries:
     $ brew install postgresql@9.6
-2. Ensure postrges is available in your PATH:
-    $ echo "PATH=/usr/local/opt/postgresql@9.6/bin:$PATH" >> ~/.bash_profile
-3. To have launchd start postgresql now and restart at login:
-    $ brew services start postgresql@9.6
+2. Follow the instructions, provided by brew to add postgresql to your path, under "If you need to have this software first in your PATH run:"
+3. Also, follow the instructions, provided by brew to configure postgresql as a service, under "To have launchd start postgresql@9.6 now and restart at login:"
           '
         ],
         verify: -> { assert_version_is_sufficient('9.6.0', 'psql --version | cut -f3 -d " "') }
@@ -419,7 +417,7 @@ We use information from your github account throughout the class.
     $ echo 'export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin' >> ~/.bash_profile
           )
         ],
-        verify: -> { assert_version_is_sufficient('9.6.0', 'psql --version | cut -f3 -d " "')}
+        verify: -> { assert_version_is_sufficient('9.6.0', 'psql --version | cut -f3 -d " "') }
       },
 
       ruby: {
