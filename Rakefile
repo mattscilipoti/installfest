@@ -429,7 +429,7 @@ We use information from your github account throughout the class.
 
 2. Install ruby
 
-    $ rvm install 2.4.2
+    $ rvm install 2.4.3
 
 NOTE: If you get the warning below, you can safely ignore it and move on to step 3.
 
@@ -438,13 +438,13 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
 
 3. Configure your default version of ruby
 
-    $ rvm use 2.4.2 --default
+    $ rvm use 2.4.3 --default
           )
         ],
-        verify: -> { assert_match(/^ruby 2.4.2p198/, 'ruby --version') },
-        ykiwi: %q(
-* The output of `$ ruby --version` **starts** with `ruby 2.4.2p198`.
-        )
+        verify: -> { assert_match(/^ruby 2.4.3p205/, 'ruby --version') },
+        ykiwi: '
+* The output of `$ ruby --version` **starts** with `ruby 2.4.3p205`.
+        '
       },
 
       ruby_bundler: {
