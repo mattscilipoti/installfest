@@ -620,7 +620,6 @@ If you installed node without using 'brew install node', follow these instructio
       package = packages[package_name]
       # header defaults to package_name
       package = {header: package_name}.merge(package)
-      system "clear"
       until result = verify_package(package_name, package)
         notify colorize(%Q(#{'-' * 25}
 IT'S YOUR TURN! Either you haven't installed this application yet, or it needs some tweaking.
