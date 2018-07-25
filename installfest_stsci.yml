@@ -13,4 +13,5 @@
 - :git_configuration
 #- :github
 - :global_gitignore
-#- :bash_prompt
+- :slack
+- :bash_prompt
