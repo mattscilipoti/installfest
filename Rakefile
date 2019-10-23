@@ -270,11 +270,23 @@ class Installfest
 
     $ git config --global user.email "THE_EMAIL_YOU_USE_FOR_GITHUB@EMAIL.COM"
 
-2. Configure the default push mode:
+2. Make git pay attention if you change a filename to uppercase or lowercase
 
-    $ git config --global push.default simple
+    $ git config --global core.ignorecase false
 
-3. Configure git's colors (you can copy & paste all of these commands at once):
+3. Configure to use "current" as default push configuration
+
+    $ git config --global push.default current
+
+4. Use `pull --rebase` for master
+
+    $ git config --global branch.master.rebase true
+
+5. [optional] Tell git what editor to use for commits (NOTE: skip this to use default: vim)
+
+    $ git config --global core.editor "code --wait"
+
+6. [optional] Configure git's colors (you can copy & paste all of these commands at once):
 
     git config --global color.ui always
     git config --global color.branch.current   "green reverse"
@@ -283,22 +295,6 @@ class Installfest
     git config --global color.status.added     green
     git config --global color.status.changed   yellow
     git config --global color.status.untracked red
-
-4. Make git pay attention if you change a filename to uppercase or lowercase
-
-    $ git config --global core.ignorecase false
-
-5. Tell git what editor to use for commits
-
-    $ git config --global core.editor atom
-
-6. Configure to use "current" as default push configuration
-
-    $ git config --global push.default current
-
-7. Use `pull --rebase` for master
-
-    $ git config --global branch.master.rebase true
           ),
         ],
         verify: -> { assert_match(/branch.master.rebase=true/, 'git config --list | grep branch.master.rebase')}
