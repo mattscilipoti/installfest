@@ -620,7 +620,6 @@ If you installed node without using 'brew install node', follow these instructio
       package = packages[package_name]
       # header defaults to package_name
       package = {header: package_name}.merge(package)
-      system "clear"
       until result = verify_package(package_name, package)
         notify colorize(%Q(#{'-' * 25}
 IT'S YOUR TURN! Either you haven't installed this application yet, or it needs some tweaking.
@@ -631,7 +630,7 @@ If issues persist, raise your hand and an instructor will assist you.), :green)
         show_instructions_for(package)
         notify "\nPress <enter> when you have completed the above steps."
         response = $stdin.gets.strip
-
+        system 'clear'
         # We need to reload the bash config and restart installfest.
         # `exec` (ruby) and `exec` (bash) did the trick
         notify "Reloading bash and restarting installfest..."
