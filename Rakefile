@@ -208,6 +208,7 @@ class Installfest
 
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
       source $(brew --prefix)/etc/bash_completion
+      source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
       GIT_PS1_SHOWDIRTYSTATE=1
       git_prompt='$(__git_ps1)'
     fi
