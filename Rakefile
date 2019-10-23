@@ -452,7 +452,7 @@ NOTE: If you get the warning below, you can safely ignore it and move on to step
     $ gem install bundler
           )
         ],
-        verify: -> { assert_version_is_sufficient('1.16.0', 'gem list bundler | head -n1  | cut -f3 -d " " | sed "s/[()]//g"') }
+        verify: -> { assert_version_is_sufficient('1.16.0', 'bundler --version | cut -f3 -d " "') }
       },
 
       ruby_gems: {
