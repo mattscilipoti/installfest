@@ -43,9 +43,7 @@ class Installfest
     else
       result = colorize("NOT met.", :red)
       debug_info = %Q(
-****** YOU CAN IGNORE THIS!
-(It's extra info to tell instructors if there's a problem.)
-(Just skip this part and go to the instructions below.)
+****** Troubleshooting Info (if necessary)
 #{failure_message_for_actual}"
 #{failure_message_for_expected}"
 ******
