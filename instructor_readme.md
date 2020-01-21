@@ -6,15 +6,15 @@ A collection of supporting (rake) tasks for Installfest.
 
 Students should be able to download (or `curl`) and run this independently.  We are using installfest.sh to achieve this.
 
-[![Dependency Status](https://gemnasium.com/ga-dc/installfest.svg)](https://gemnasium.com/ga-dc/installfest)
+[![Dependency Status](https://gemnasium.com/mattscilipoti/installfest.svg)](https://gemnasium.com/mattscilipoti/installfest)
 
-Travis CI ![Travis CI](https://travis-ci.org/ga-dc/installfest.svg?branch=master)
+Travis CI ![Travis CI](https://travis-ci.org/mattscilipoti/installfest.svg?branch=master)
 
 
 ## Managing Student Instructions
 
 The base readme.md provides instructions for students.
-In order to simplify the instructions, we are using a shortened url for `https://raw.githubusercontent.com/ga-dc/installfest/master/installfest.sh`
+In order to simplify the instructions, we are using a shortened url for `https://raw.githubusercontent.com/mattscilipoti/installfest/master/installfest.sh`
 
 ## tldr
 - packages to install are configured via installfest.yml (should be a "template" for your class)

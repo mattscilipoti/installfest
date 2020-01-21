@@ -228,7 +228,7 @@ class Installfest
         header: "El Capitan ONLY!!  Disable SIP (System Integrity Protection)",
         installation_steps: [
           %q(
-1. Follow [these instructions to disable SIP](https://github.com/ga-dc/installfest/blob/master/disable_sip_for_homebrew.md).
+1. Follow [these instructions to disable SIP](https://github.com/mattscilipoti/installfest/blob/master/disable_sip_for_homebrew.md).
           )
         ],
         verify: -> {  case compare_versions(`sw_vers -productVersion`, '10.11.0')
@@ -331,7 +331,7 @@ We use information from your github account throughout the class.
 
 2. Download the provided global gitignore file to your home dir:
 
-    $ curl -sSL https://raw.githubusercontent.com/ga-dc/installfest/master/support/gitignore_global -o ~/.gitignore_global
+    $ curl -sSL https://raw.githubusercontent.com/mattscilipoti/installfest/master/support/gitignore_global -o ~/.gitignore_global
 
 3. Configure git to use this global gitignore file:
 
