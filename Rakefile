@@ -203,18 +203,52 @@ class Installfest
     `[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*`
 
     ...copy and paste these lines:
-
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-      source $(brew --prefix)/etc/bash_completion
+    # prompt >>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+    # enable completion and the __git_ps1 variable
+    if [ -r $(brew --prefix)/etc/profile.d/bash_completion.sh ]; then
+      source $(brew --prefix)/etc/profile.d/bash_completion.sh
       source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
       GIT_PS1_SHOWDIRTYSTATE=1
       git_prompt='$(__git_ps1)'
     fi
-    PS1="\[\e[33m\]  \d \t \w$git_prompt\n\[\e[m\]\\$ "
+    
+    # see: https://www.gnu.org/software/bash/manual/bash.html#Printing-a-Prompt
+    
+    # Create color variables for use in the prompt
+    RESET="\033[m"
+    BLACK="\[\e[0;30m\]"
+    BLUE="\[\e[0;34m\]"
+    CYAN="\[\e[0;36m\]"
+    GREEN="\033[1;32m"
+    ORANGE="\033[1;33m"
+    PURPLE="\033[1;35m"
+    RED="\033[1;31m"
+    WHITE="\033[1;37m"
+    YELLOW="\[\e[0;33m\]"
+
+    # Build the prompt
+    # Hint: Use backslash before $ (a literal dollar-sign) so it isn't expanded immediately: https://stackoverflow.com/a/5380073
+    PS1=""
+    PS1+="\t"                          # current time, 24hr mode
+    # PS1+=" \u"                       # Username
+    PS1+=" ${CYAN}\w${RESET}"          # Working directory
+    PS1+=' ('
+    # PS1+="\$(~/.rvm/bin/rvm-prompt)" # Ruby version via rvm
+    PS1+="ruby-\$(ruby_version)"       # Ruby version
+    PS1+='|'
+    PS1+='${YELLOW}$(__git_ps1)${RESET}' # Git details; branch, dirty?, etc
+    PS1+=")\n"                         # Newline
+    PS1+="${RESET}\$ "                 # $ (and reset color)
+
+    ruby_version() {
+      ruby -v | cut -f2 -d" " | cut -f1 -dp
+    }
+    # prompt <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
     This will change your bash prompt to something like this sample prompt (context: in "installfest" dir, branch is "master" with unstaged changes):
 
-    ===== Mon May 23 16:06:51 ~/wdi/myhomework (master *)
+     16:06:51 ~/wdi/myhomework (ruby 2.4.3 (master *))
     $
 
     (P.S. That last PS1 line can be customized however you want! It just has to include '$(__git_ps1)' to show the Git information. If you're interesting, take a look at http://ezprompt.net when you're done with Installfest.)
@@ -254,7 +288,7 @@ class Installfest
             'git --version | head -n1 | cut -f3 -d " "'
           ) # non-abbreviated flag names are not available in BSD
         end,
-        ykiwi: "The output of `git --version` is greater than or equal to 2.0"
+        ykiwi: "The output of `git --version` is greater than or equal to 2.25.0"
       },
 
       git_configuration: {
