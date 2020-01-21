@@ -248,8 +248,9 @@ class Installfest
           )
         ],
         verify: lambda do
+          assert_equals('/usr/local/bin/git', 'which git') && # git was installed brew
           assert_version_is_sufficient(
-            '2.7.0',
+            '2.25.0',
             'git --version | head -n1 | cut -f3 -d " "'
           ) # non-abbreviated flag names are not available in BSD
         end,
