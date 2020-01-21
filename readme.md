@@ -49,7 +49,23 @@ $ echo "My name is MY_NAME!"
 
   - If you're asked to enter your password, that means the password for your computer. When you type it in, Terminal won't give you any visual feedback to indicate you're typing things in: you won't get a black dot for each character you typed. That's OK: just type your password and hit enter.
 
-## Downloading the Script
+## STScI developer? Read This (Not a developer? Jump to "Downloading the script")
+
+1. InstallFest is configured via a Yaml file named `installfest.yml`. This project supports multiple different configurations.  We want to use the STScI configuration file: `installfest_stsci.yml`. Let's make a symbolic link from the STScI configuration file to the expected `installfest.yml`:
+
+  ```
+  ln -s installfest_stsci.yml installfest.yml
+  ```
+
+2. Start InstallFest (from your cloned installfest dir):
+
+  ```
+  rake installfest:start
+  ```
+
+3. That's it. All done.
+
+## Downloading the Script (STScI Developers can ignore this)
 
 1. Make your working directory for WDI.  You will use this directory *throughout the course* for storing exercises, homework, projects, and so on:
 
