@@ -420,6 +420,15 @@ We use information from your github account throughout the class.
         end,
       },
 
+      openssl:{
+        header: 'OpenSSL (via Homebrew)',
+        installation_steps: [
+          '
+1. Install the necessary libraries:
+    $ brew install openssl'
+        ],
+        verify: -> { assert_version_is_sufficient('2.2.0', 'openssl version | cut -f2 -d " "') }
+      },
 
       postgresql: {
         header: 'PostgreSQL (via Homebrew)',
